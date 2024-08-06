@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Tours</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            border: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-image: url('boy3.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            opacity: 1;
+            box-shadow: #db0606;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 5px rgb(153, 150, 150);
+            font-weight: 700;
+            padding: 20px;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover .bar {
+            background-color: #4affc0;
+        }
+
+        .hero {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 5px rgb(153, 150, 150);
+            font-weight: 700;
+            padding: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-colorlib {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-decoration: none;
+            background-color: transparent;
+            transition: background-color 0.3s, color 0.3s;
+            color: white;
+        }
+
+        .btn-colorlib:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .colorlib-text {
+            color: white;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-content.zoomed img {
+            transform: scale(2);
+        }
+
+        .close, .zoom-in, .thumbnails {
+            position: absolute;
+            top: 10px;
+            font-size: 15px; /* Adjusted size */
+            color: #000000;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 20px; /* Adjusted size */
+            height: 20px; /* Adjusted size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close {
+            right: 15px;
+            font-size: 24px;
+        }
+
+        .zoom-in {
+            right: 40px;
+        }
+
+        .thumbnails {
+            right: 75px;
+        }
+
+    .thumbnail-view {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    overflow-y: scroll;
+    z-index: 1001;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.thumbnail-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Double column layout */
+    gap: 10px;
+}
+
+.thumbnail-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensure images cover the thumbnail box */
+    aspect-ratio: 4 / 3; /* Adjust to maintain landscape mode */
+    cursor: pointer;
+}
+
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.6s ease;
+            user-select: none;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        footer {
+    background-color: rgb(47, 46, 46);
+    color: white;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #aaa;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+}
+
+.footer-column input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #aaa;
+}
+.footer-bottom span {
+    color: rgb(100, 99, 99);
+}
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Hepta</div>
+            <a href="menu-page.html" class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+        </div>
+        <div class="hero">
+            <h1>Travel & Tours</h1>
+            <p>A free template by Colorlib. Download and share!</p>
+            <a href="https://colorlib.com/" class="btn-colorlib">
+                <span class="colorlib-text">Visit Colorlib</span>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="gallery">
+            <div class="gallery-item"><img src="girlbag.png" alt="Image 1" onclick="openLightbox(0)"></div>
+            <div class="gallery-item"><img src="boy.png" alt="Image 2" onclick="openLightbox(1)"></div>
+            <div class="gallery-item"><img src="boy2.png" alt="Image 3" onclick="openLightbox(2)"></div>
+            <div class="gallery-item"><img src="swim.png" alt="Image 4" onclick="openLightbox(3)"></div>
+            <div class="gallery-item"><img src="sofa.png" alt="Image 5" onclick="openLightbox(4)"></div>
+            <div class="gallery-item"><img src="juice.png" alt="Image 6" onclick="openLightbox(5)"></div>
+            <div class="gallery-item"><img src="beach.png" alt="Image 7" onclick="openLightbox(6)"></div>
+            <div class="gallery-item"><img src="back.png" alt="Image 8" onclick="openLightbox(7)"></div>
+            <div class="gallery-item"><img src="boyl.png" alt="Image 9" onclick="openLightbox(8)"></div>
+            <div class="gallery-item"><img src="boy3.png" alt="Image 10" onclick="openLightbox(9)"></div>
+        </section>
+    </main>
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <span class="zoom-in" onclick="toggleZoom()">&#128269;</span>
+            <span class="thumbnails" onclick="toggleThumbnails()">&#128247;</span>
+            <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+            <a class="next" onclick="changeImage(1)">&#10095;</a>
+        </div>
+        <div class="thumbnail-view" id="thumbnail-view">
+            <div class="thumbnail-gallery">
+                <!-- Thumbnails will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    <script>
+        const images = document.querySelectorAll('.gallery-item img');
+        let currentIndex = 0;
+        let isZoomed = false;
+        let thumbnailsVisible = false;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = images[index].src;
+            lightbox.style.display = 'flex';
+            populateThumbnails();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.querySelector('.lightbox-content').classList.remove('zoomed');
+            isZoomed = false;
+            document.getElementById('thumbnail-view').style.display = 'none';
+            thumbnailsVisible = false;
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = images[currentIndex].src;
+        }
+
+        function toggleZoom() {
+            const lightboxContent = document.querySelector('.lightbox-content');
+            isZoomed = !isZoomed;
+            if (isZoomed) {
+                lightboxContent.classList.add('zoomed');
+            } else {
+                lightboxContent.classList.remove('zoomed');
+            }
+        }
+
+        function toggleThumbnails() {
+            const thumbnailView = document.getElementById('thumbnail-view');
+            thumbnailsVisible = !thumbnailsVisible;
+            thumbnailView.style.display = thumbnailsVisible ? 'block' : 'none';
+        }
+
+        function populateThumbnails() {
+    const thumbnailGallery = document.querySelector('.thumbnail-gallery');
+    thumbnailGallery.innerHTML = ''; // Clear existing thumbnails
+    images.forEach((img, index) => {
+        const thumbnail = document.createElement('img');
+        thumbnail.src = img.src;
+        thumbnail.alt = `Thumbnail ${index + 1}`;
+        thumbnail.onclick = () => {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = img.src;
+        };
+        thumbnailGallery.appendChild(thumbnail);
+    });
+}
+
+    </script>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Rooms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Our Location</a></li>
+                        <li><a href="#">The Hosts</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Restaurant</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>Address: 98 West 21th Street, Suite 721 New York NY 10016</p>
+                    <p>Phone: (+1) 435 3533</p>
+                    <p>Email: info@yourdomain.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Subscribe</h3>
+                    <p>Sign up for our newsletter</p>
+                    <input type="email" placeholder="Your email...">
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2024 All rights reserved | This template is made with <span> ❤</span> by Colorlib</p>
+               
+                    <div class="social-icons">
+                        <a href="#"><img src="https://th.bing.com/th/id/R.ac7c4437586fd33b6b0f65925408b0ad?rik=6FfGDRFJujUh8g&riu=http%3a%2f%2fwww.newdesignfile.com%2fpostpic%2f2013%2f01%2ffacebook-icon-black-circle_155320.png&ehk=BuMAJhlSegbPE3BBoW22OQEsHZbMWclvDlUgbZjUMGA%3d&risl=&pid=ImgRaw&r=0" alt="Facebook"></a>
+                        <a href="#"><img src="https://th.bing.com/th/id/OIP.9_ZXseiaB1tgYquikdl68AHaFj?w=268&h=200&c=7&r=0&o=5&dpr=1.7&pid=1.7" alt="Instagram"></a>
+                        <a href="#"><img src="https://th.bing.com/th/id/OIP.VsqHoEuY7p-i84-_MHWGkAHaHw?rs=1&pid=ImgDetMain" alt="YouTube"></a>
+                        <a href="#"><img src="https://th.bing.com/th/id/OIP.Vr8DfHIHQWd3rUGnO20uOgHaHa?w=172&h=180&c=7&r=0&o=5&dpr=1.7&pid=1.7" alt="Twitter"></a>
+                        <a href="#"><img src="https://th.bing.com/th/id/OIP.eb41Yo7b_b1DPmvsgGqyPgHaHa?w=162&h=180&c=7&r=0&o=5&dpr=1.7&pid=1.7" alt="Indeed"></a>
+                    </div>
+                </div>
+            </div>
+            
+        </footer>
+</body>
+</html>

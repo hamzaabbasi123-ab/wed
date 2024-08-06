@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Tours</title>
+    <style>
+     /* Resetting margins, paddings, and box-sizing for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    border: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background-image: url('girlbag.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    opacity: 1.5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 40px); /* Adjust width for padding */
+}
+
+.logo {
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 5px rgba(153, 150, 150, 0.8);
+    font-weight: 700;
+    padding: 40px;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.menu-toggle:hover .bar {
+    background-color: #4affc0;
+}
+
+/* Hero Section Styles */
+.hero {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 80px;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 5px rgba(153, 150, 150, 0.8);
+    font-weight: 700;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 45px;
+    transition: background-color 0.3s;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background-color: none;
+}
+
+.btn-colorlib {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-colorlib:hover {
+    background-color: white;
+    color: black;
+}
+
+.colorlib-text {
+    color: white;
+    font-weight: bold;
+}
+
+/* Intro Section Styles */
+.intro, .intro2 {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.intro-text {
+    flex: 1;
+    padding-left: 20px;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.intro-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Learn More Button */
+.learn-more {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    background-color: none;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #4affc0;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: #17f0b6;
+}
+
+/* Service Section Styles */
+.service-card {
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.services {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Icon Styles */
+.icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Video Button Styles */
+.btn-video {
+    display: inline-flex;
+    align-items: center;
+    color: rgb(69, 113, 45);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.play-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgb(69, 113, 45);
+    background-color: white;
+    color: rgb(69, 113, 45);
+    margin-right: 10px;
+}
+
+.btn-video:hover .play-icon {
+    background-color: rgb(69, 113, 45);
+    color: white;
+}
+
+.btn-video:hover {
+    color: rgb(69, 113, 45);
+}
+
+/* Tour Management Section */
+.tour-management {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.tour-management h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+}
+
+.tour-management p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 40px;
+}
+
+/* Gallery Styles */
+.gallery {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.gallery-slide {
+    display: none;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Gallery Navigation Buttons */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.gallery-nav button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Recent Blog Posts */
+.recent-blog-posts {
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.recent-blog-posts h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.recent-blog-posts p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: black;
+}
+
+/* Blog Cards */
+.blog-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.blog-card {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+}
+
+.blog-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.blog-card p {
+    font-size: 1rem;
+}
+
+/* Responsive Blog Cards */
+@media screen and (max-width: 768px) {
+    .blog-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blog-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Happy Customers Section */
+.happy-customers {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.happy-customers h2 {
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0);
+    margin-bottom: 40px;
+}
+
+/* Customer Reviews */
+.customer-reviews {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: left;
+}
+
+.review-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Responsive Customer Reviews */
+@media screen and (max-width: 768px) {
+    .customer-reviews {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+footer {
+    background-color: rgb(47, 46, 46);
+    color: white;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #aaa;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+}
+
+.footer-column input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #aaa;
+}
+.footer-bottom span {
+    color: rgb(100, 99, 99);
+}
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div class="menu-container">
+            <div class="navbar">
+                <div class="logo">Hepta</div>
+                <a href="menu-page.html" class="menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
+            </div>
+        </div>
+        
+            <div class="hero">
+                <h1>Our Hotels</h1>
+                <p>A free template by Colorlib. Download and share!</p>
+                <a href="https://colorlib.com/" class="btn-colorlib">
+                    <span class="colorlib-text">Visit Colorlib</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    
+    <section class="services">
+        <div class="container">
+            
+            <div class="service-cards">
+                <div class="service-card">
+                    <img src="https://cdn3.iconfinder.com/data/icons/food-155/100/Healthy_food_2-512.png" alt="Good Foods Icon" class="service-icon"> <!-- Replace with your image path -->
+                    <h3>Good Foods</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://th.bing.com/th/id/OIP.1vsEPt29dA4xQ1sNv6B55QHaHa?rs=1&pid=ImgDetMain" alt="Travel Anywhere Icon" class="service-icon"> <!-- Replace with your image path -->
+                    <h3>Travel Anywhere</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://th.bing.com/th/id/OIP._MGSYR4eFW9yUzn8tbQ_gwHaHa?rs=1&pid=ImgDetMain" alt="Airplane Icon" class="service-icon"> <!-- Replace with your image path -->
+                    <h3>Airplane</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <!-- New Service Cards -->
+                <div class="service-card">
+                    <img src="https://th.bing.com/th/id/OIP.5OWRABpBB_6-hvUC9SU9fAHaHa?rs=1&pid=ImgDetMain" alt="Beach Resort Icon" class="service-icon"> <!-- Replace with your image path -->
+                    <h3>Beach Resort</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://th.bing.com/th/id/OIP.iJzT_G4RaHJ6LbWqQmsLewHaHa?w=164&h=180&c=7&r=0&o=5&dpr=1.7&pid=1.7" alt="Mountain Climbing Icon" class="service-icon"> <!-- Replace with your image path -->
+                    <h3>Mountain Climbing</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://th.bing.com/th/id/R.dcf3b77be05aeedef673511e7b38f238?rik=rATkMu1DNGwRtA&pid=ImgRaw&r=0" alt="Hot Air Balloon Icon" class="service-icon"> <!-- Replace with your image path -->
+                    <h3>Hot Air Balloon</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <script src="script.js"></script>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+        });
+        </script>
+<section class="intro">
+    <div class="container">
+        <div class="intro-content">
+            <div class="intro-text">
+                <h2>Family room</h2><br>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> <br>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                </a>
+                <a href="#learn-more" class="learn-more">Learn More</a>
+            </div>
+            <div class="intro-image">
+                <img src="boy2.png" alt="Mountain View">
+            </div>
+        </div>
+        
+    </div>
+    <section class="intro2">
+        <div class="container">
+            <div class="intro-content2">
+                <div class="intro-text2">
+                    <h2>Persidetial room</h2><br>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> <br>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </a>
+                    <a href="#learn-more" class="learn-more">Learn More</a>
+                </div>
+                <div class="intro-image2">
+                    <img src="back2.png" alt="Mountain View">
+                </div>
+            </div>
+            
+        </div>
+
+</section>
+      <section class="tour-management">
+        <div class="container">
+            <center>
+            <h2>Hotel Gallery</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <br>
+                 there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the <br>
+                  Semantics, a large language ocean.</p>
+                </center>
+            <div class="gallery">
+                <div class="gallery-slide">
+                    <img src="back.png" alt="Tour Image 1">
+                </div>
+                <div class="gallery-slide">
+                    <img src="boy3.png" alt="Tour Image 2">
+                </div>
+                <div class="gallery-slide">
+                    <img src="swim.png" alt="Tour Image 3">
+                </div>
+                <div class="gallery-slide">
+                    <img src="girlbag.png" alt="Tour Image 4">
+                </div>
+                <div class="gallery-slide">
+                    <img src="juice.png" alt="Tour Image 5">
+                </div>
+                <div class="gallery-slide">
+                    <img src="beach.png" alt="Tour Image 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Existing script for menu toggle
+    
+        // New script for image gallery
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.gallery-slide');
+        const totalSlides = slides.length;
+    
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+    
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+    
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        }
+    
+        document.querySelector('.gallery-nav .prev').addEventListener('click', prevSlide);
+        document.querySelector('.gallery-nav .next').addEventListener('click', nextSlide);
+    
+        // Initialize the first slide
+        showSlide(currentIndex);
+    
+        // Optionally: Auto-slide functionality
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    </script>
+    
+    <section class="recent-blog-posts">
+        <div class="container">
+            <h2>More Hotel Features</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,<br>
+                 there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the <br>
+                  Semantics, a large language ocean.</p>
+    
+            <div class="blog-cards">
+                <div class="blog-card">
+                    <img src="juice.png" alt="Blog 1 Image" > 
+                     <p>February 26, 2018</p>
+                    <h3>  45 Best Places To Unwind</h3>
+                    <p>Far far away, behind the word <br> 
+                        mountains, far from the countries <br>
+                         Vokalia and Consonantia, there live the <br>
+                          blind texts.</p>
+                </div>
+                <div class="blog-card">
+                    <img src="beach.png" alt="Blog 2 Image">
+                    <p>February 26, 2018</p>
+                    <h3>45 Best Places To Unwind</h3>
+                    <p>Far far away, behind the word <br>
+                         mountains, far from the countries <br>
+                         Vokalia and Consonantia, there live the <br>
+                          blind texts.</p>
+                </div>
+                <div class="blog-card">
+                    <img src="sofa.png" alt="Blog 3 Image">
+                    <p>February 26, 2018</p>
+                    <h3>45 Best Places To Unwind</h3>
+                    <p>Far far away, behind the word <br>
+                         mountains, far from the countries <br>
+                         Vokalia and Consonantia, there live the <br>
+                          blind texts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+   
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Rooms</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Our Location</a></li>
+                    <li><a href="#">The Hosts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Restaurant</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p>Address: 98 West 21th Street, Suite 721 New York NY 10016</p>
+                <p>Phone: (+1) 435 3533</p>
+                <p>Email: info@yourdomain.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Subscribe</h3>
+                <p>Sign up for our newsletter</p>
+                <input type="email" placeholder="Your email...">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 All rights reserved | This template is made with <span> ❤</span> by Colorlib</p>
+           
+                <div class="social-icons">
+                    <a href="#"><img src="https://th.bing.com/th/id/R.ac7c4437586fd33b6b0f65925408b0ad?rik=6FfGDRFJujUh8g&riu=http%3a%2f%2fwww.newdesignfile.com%2fpostpic%2f2013%2f01%2ffacebook-icon-black-circle_155320.png&ehk=BuMAJhlSegbPE3BBoW22OQEsHZbMWclvDlUgbZjUMGA%3d&risl=&pid=ImgRaw&r=0" alt="Facebook"></a>
+                    <a href="#"><img src="https://th.bing.com/th/id/OIP.9_ZXseiaB1tgYquikdl68AHaFj?w=268&h=200&c=7&r=0&o=5&dpr=1.7&pid=1.7" alt="Instagram"></a>
+                    <a href="#"><img src="https://th.bing.com/th/id/OIP.VsqHoEuY7p-i84-_MHWGkAHaHw?rs=1&pid=ImgDetMain" alt="YouTube"></a>
+                    <a href="#"><img src="https://th.bing.com/th/id/OIP.Vr8DfHIHQWd3rUGnO20uOgHaHa?w=172&h=180&c=7&r=0&o=5&dpr=1.7&pid=1.7" alt="Twitter"></a>
+                    <a href="#"><img src="https://th.bing.com/th/id/OIP.eb41Yo7b_b1DPmvsgGqyPgHaHa?w=162&h=180&c=7&r=0&o=5&dpr=1.7&pid=1.7" alt="Indeed"></a>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    
+</body>
+</html>

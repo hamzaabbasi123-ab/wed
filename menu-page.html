@@ -1,0 +1,36 @@
+<!-- menu.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <nav class="menu-options">
+            <div class="close-button" id="close-button">&#10005;</div> <!-- Cross icon -->
+            <ul class="menu-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   
+
+   
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        document.getElementById('close-button').addEventListener('click', function() {
+    window.location.href = 'index.html'; // Redirect to home page
+});
+    </script>
+</body>
+</html>

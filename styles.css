@@ -1,0 +1,640 @@
+x* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    border: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+header {
+    background-image: url('back.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    opacity: 1.5;
+    box-shadow: #db0606;
+  
+}
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 5px rgb(153, 150, 150);
+    font-weight: 700;
+    padding: 20px;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Space out the bars evenly */
+    width: 30px; /* Width of the menu icon */
+    height: 25px; /* Height of the menu icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    background: none; /* Remove any default background */
+    border: none; /* Remove any default border */
+    padding: 0; /* Remove any default padding */
+}
+
+.bar {
+    width: 30px; /* Width of each line */
+    height: 3px; /* Thickness of each line */
+    background-color: white; /* Color of the lines */
+    border-radius: 3px; /* Rounded corners for the lines */
+    transition: all 0.3s ease; /* Smooth transition for animations */
+}
+.menu-toggle:hover .bar {
+    background-color: #4affc0; /* Change color on hover */
+}
+
+.hero {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 5px rgb(153, 150, 150);
+    font-weight: 700;
+    padding: 20px;
+    
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 45px;
+    border-color: rgb(255, 255, 255);
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: none;
+    display: inline-block;
+}
+
+.btn-colorlib {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid white; /* White border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none;
+    background-color: transparent; /* Transparent background */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-colorlib:hover {
+    background-color: white; /* White background on hover */
+    color: black; /* Black text on hover */
+}
+
+.colorlib-text {
+    color: white; /* White text color */
+    font-weight: bold; /* Bold text */
+}
+
+.intro {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: row-reverse; /* This reverses the order */
+    align-items: center;
+}
+
+.intro-text {
+    flex: 1;
+    padding-left: 20px; /* Adjust padding to left */
+    text-align: left;
+}
+
+.intro-text, h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.intro-image img {
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    float: right; /* Float the image to the right */
+}
+
+/* Existing styles */
+
+.service-card {
+    text-align: center;
+    flex: 1;
+    min-width: 250px; /* Ensures minimum width for responsiveness */
+    max-width: 300px; /* Adjust based on design */
+    padding: 20px;
+    margin: 10px; /* Space around each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #fff; /* Background color of the cards */
+}
+
+.service-icon {
+    width: 60px; /* Adjust width as needed */
+    height: 60px; /* Adjust height as needed */
+    margin-bottom: 20px; /* Space between icon and text */
+}
+
+.services {
+    padding: 50px 0;
+    font-family: Arial, Helvetica, sans-serif; /* Set font-family for .services */
+    text-align: center; /* Center-align text in .services */
+}
+
+.services h2 {
+    margin-bottom: 40px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to next line */
+    justify-content: space-around; /* Space between cards */
+}
+
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.btn-video {
+    display: inline-flex;
+    align-items: center;
+    color: rgb(69, 113, 45);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.play-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Adjust size as needed */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* Makes the icon circular */
+    border: 2px solid rgb(69, 113, 45); /* Circle border color */
+    background-color: white; /* Background color of the circle */
+    color: rgb(69, 113, 45); /* Color of the play icon */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.btn-video:hover .play-icon {
+    background-color: rgb(69, 113, 45); /* Change background color on hover */
+    color: white; /* Change icon color on hover */
+}
+
+.btn-video:hover {
+    color: rgb(69, 113, 45); /* Optional: change text color on hover */
+}
+
+@media screen and (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-cards {
+        flex-direction: column;
+    }
+
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+.tour-management {
+    padding: 50px 0;
+    text-align: center; /* Center-align text */
+}
+
+.tour-management h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+    
+}
+
+.tour-management p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 40px;
+}
+
+.gallery {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden; /* Hide overflow for smooth sliding effect */
+}
+
+.gallery-slide {
+    display: none; /* Hide all slides initially */
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Optional: Add navigation buttons */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-80%);
+}
+
+.gallery-nav button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.recent-blog-posts {
+    background-color: rgb(52, 163, 148); /* Seagreen background */
+    color: white; /* White text color */
+    padding: 50px 0;
+    text-align: center; /* Center the text */
+    font-style: normal;
+}
+
+.recent-blog-posts h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: black;
+}
+
+.recent-blog-posts p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-cards {
+    display: flex;
+    justify-content: space-around; /* Space around the blog cards */
+    flex-wrap: nowrap; /* Allow wrapping on smaller screens */
+}
+
+.blog-card {
+    background-color: #ffffff; /* White background for blog cards */
+    color: rgb(0, 0, 0); /* Seagreen text color */
+    width: 30%; /* Adjust width as needed */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    text-align: left;
+}
+
+.blog-card img {
+    width: 100%; /* Full width image */
+    height: auto;
+    border-radius: 10px 10px 0 0; /* Rounded corners on top */
+    margin-bottom: 20px;
+}
+
+.blog-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.blog-card p {
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .blog-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blog-card {
+        width: 80%; /* Full width for smaller screens */
+    }
+}
+.happy-customers {
+    padding: 50px 0;
+    background-color: #f4f4f4; /* Background color for the section */
+    text-align: center;
+}
+
+.happy-customers h2 {
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0);
+    margin-bottom: 40px;
+}
+
+.customer-reviews {
+    display: flex;
+    justify-content: space-between; /* Space between the review cards */
+    flex-wrap: nowrap; /* Keep the columns in a single row */
+}
+
+.review-card {
+    width: 30%; /* Adjust width to fit three cards in a row */
+    background-color: white; /* Background color of the cards */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+    text-align: center;
+}
+
+.customer-image {
+    width: 100px; /* Size of the circular image */
+    height: 100px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+    margin-bottom: 15px;
+}
+
+.review-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.review-card p {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .customer-reviews {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        justify-content: center; /* Center the cards when wrapping */
+    }
+
+    .review-card {
+        width: 45%; /* Adjust width to fit two cards per row on smaller screens */
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .customer-reviews {
+        flex-direction: column; /* Stack the cards vertically on very small screens */
+    }
+
+    .review-card {
+        width: 80%; /* Full width for smaller screens */
+        margin-bottom: 20px;
+    }
+}
+.top-destination {
+    background-color: rgb(255, 255, 255);
+    padding: 50px 0;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.top-destination h2 {
+    margin-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+}
+
+.top-destination p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.destination-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.destination-card {
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+    margin: 10px;
+}
+
+.destination-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.destination-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+}
+
+.destination-card p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.stars {
+    font-size: 1.2rem;
+    color: gold;
+}
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+    }
+}
+footer {
+    background-color: rgb(47, 46, 46);
+    color: white;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #aaa;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+}
+
+.footer-column input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #aaa;
+}
+.footer-bottom span {
+    color: rgb(100, 99, 99);
+}
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+/* Menu Page Styles */
+/* Menu Options Container */
+.menu-options {
+    background-color: none;
+    padding: 20px;
+    position: relative; /* For positioning the close button */
+}
+
+/* Grid Layout for Menu Items */
+.menu-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    justify-items: center; /* Center items within grid cells */
+    font-size: x-large;
+    text-shadow: #25ffab;
+}
+
+/* Menu Item Styling */
+.menu-list li {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-list li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-list li a:hover {
+    background-color: #38fab6;
+    color: white;
+}
+
+/* Close Button Styles */
+.close-button {
+    position: fixed; /* Fixes it to the viewport */
+    top: 20px; /* Distance from the top of the viewport */
+    right: 20px; /* Distance from the right edge of the viewport */
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1000; 
+    
+}
+
+.close-button:hover {
+    color: #1af7d6; /* Color change on hover */
+}
